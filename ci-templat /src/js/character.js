@@ -1,9 +1,14 @@
 export default class Character{
-    constructor(name){
+    constructor(name,type){
+      const types = ['Bowman', 'Swordsman', 'Magician', 'Undead', 'Zombie'];
       if(name === undefined || name.lenght < 2 || name.lenght >10){
         throw new Error("Переписывай");
       }
+      if(!types.includes(type)){
+        throw new Error("Недопустимый тип персонажа");
+      };  
       this.name = name;
+      this.type = type;
       this.health = 100;
       this.level = 1;
     }
